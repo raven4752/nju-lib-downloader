@@ -176,7 +176,7 @@ public class Downloader {
             return false;
         }
         //判断书本pdf是否已经存在
-        File expected = path.resolve(normalizedBookName + ".pdf").toFile();
+        File expected = path.resolve(book.getName().replaceAll("[/\\\\:\"*?<>|]", " ") + ".pdf").toFile();
         return expected.exists() ? handleExistPDFFile(expected) : downloadBookFromMkdir();//若不存在，则立即下载;若存在，则进一步判断是否需要下载
     }
 
@@ -308,7 +308,7 @@ public class Downloader {
         return output.toString();
     }
 
-    public void mergePDF() throws MergeException{
+    public void mergePDF() throws MergeException {
         File inputFileArray[] = directory.toFile().listFiles();
         Arrays.sort(inputFileArray, Comparator.comparing(File::getName));
         inputFileArray = Arrays.asList(inputFileArray).stream().filter(file -> file.isFile() && file.getName().endsWith(".pdf")).toArray(File[]::new);
