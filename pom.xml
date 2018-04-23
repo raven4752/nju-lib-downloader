@@ -6,7 +6,7 @@
 
     <groupId>com.padeoe.nju</groupId>
     <artifactId>libpdf</artifactId>
-    <version>0.2.8</version>
+    <version>0.2.8-batch</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -30,7 +30,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Starter</mainClass>
+                            <mainClass>cn.chineseall.Batch</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
